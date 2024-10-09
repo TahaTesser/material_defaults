@@ -29,18 +29,24 @@ class MyApp extends StatelessWidget {
               ),
               FloatingActionButton(
                 // Divide default elevation by 4.
-                elevation: FABDefaultsM3(context, FloatingActionButtonType.regular, true).elevation !/ 4,
+                elevation: FABDefaultsM3(
+                            context, FloatingActionButtonType.regular, true)
+                        .elevation! /
+                    4,
                 onPressed: () {},
                 child: const Icon(Icons.add),
               ),
               SizedBox(
                 width: 300,
                 child: NavigationBar(
-                  height: NavigationBarDefaultsM3(context).height !- 20,
+                  height: NavigationBarDefaultsM3(context).height! - 20,
                   destinations: [
-                    NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-                    NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
-                    NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+                    NavigationDestination(
+                        icon: Icon(Icons.home), label: 'Home'),
+                    NavigationDestination(
+                        icon: Icon(Icons.search), label: 'Search'),
+                    NavigationDestination(
+                        icon: Icon(Icons.person), label: 'Profile'),
                   ],
                 ),
               ),
