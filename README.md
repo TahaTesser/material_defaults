@@ -1,39 +1,58 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# material_defaults
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A Flutter package that provides access to default values for Material Design 3 (M3) components in Flutter, making it easier to customize Material Design 3 components using default values
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Getting Started
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This Flutter package isn't available on pub.dev. To use the material_defaults package, add it to your `pubspec.yaml` file with a git dependency:
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  material_defaults:
+    git:
+      url: https://github.com/TahaTesser/material_defaults,git
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use the material_defaults package, import it in your Dart file:
 
 ```dart
-const like = 'sample';
+import 'package:material_defaults/material_defaults.dart';
 ```
 
-## Additional information
+## Example
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+child: Column(
+  spacing: 16,
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: <Widget>[
+    Text(
+      'Hello, World!',
+      // Can access typography using material_defaults package
+      // without needing to setup ThemeData.
+      style: M3Typography.englishLike.displayMedium!.copyWith(
+        color: colorSchemeLightM3.primary,
+      ),
+    ),
+    FloatingActionButton(
+      // Divide default elevation by 4.
+      elevation: FABDefaultsM3(context, FloatingActionButtonType.regular, true).elevation !/ 4,
+      onPressed: () {},
+      child: const Icon(Icons.add),
+    ),
+    SizedBox(
+      width: 300,
+      child: NavigationBar(
+        height: NavigationBarDefaultsM3(context).height !- 20,
+        destinations: [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+      ),
+    ),
+  ],
+),
+```
