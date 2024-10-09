@@ -10,7 +10,7 @@ This Flutter package isn't available on pub.dev. To use the material_defaults pa
 dependencies:
   material_defaults:
     git:
-      url: https://github.com/TahaTesser/material_defaults,git
+      url: https://github.com/TahaTesser/material_defaults.git
 ```
 
 ## Usage
